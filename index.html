@@ -15,22 +15,12 @@
         <h1 class="text-center">VueJs Tutorial</h1>
 
         <div id="app">
-            <h2>Lista de estudiantes</h2>
+            <!-- <button v-bind:title="title">Hover Over Me</button> -->
+            <!-- <button :title="title">Hover Over Me</button> -->
 
-            <table>
-                <ul v-for="name in names">
-                    <li>{{ name }}</li>                   
-                </ul>
-            </table>
+            <!-- <h2 v-bind:class="className">Hello World</h2> -->
 
-            <hr><br>
-
-            <input id="input" type="text" v-model="newName">
-            
-            <!-- Metodo Largo -->
-            <!-- <button v-on:click="addName">Agregar Estudiantes</button> -->
-            
-            <button @click="addName">Agregar Estudiantes</button>
+            <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Hover Over Me</button>
         </div><!-- /#app -->
     </div>    
 
@@ -39,28 +29,17 @@
             el: "#app",
 
             data: {
-                newName: '',
-                names: ["Daniel","Maria","Jose","Fernando"]
+                // title: "Now the title is being set though javascript"
+                // className: "color-blue"
+                isLoading: false
             },
 
             methods: {
-                addName() {
-                    this.names.push(this.newName);
-
-                    this.newName = '';
+                toggleClass() {
+                    this.isLoading = true
                 }
-            },
-
-            // mounted() {
-            //     document.querySelector("#button").addEventListener('click', () => {
-            //         let name = document.querySelector("#input");
-
-            //         app.names.push(name.value);
-
-            //         name.value = '';
-            //     });
-            // }
-        });        
+            }
+        });
     </script>
 </body>
 </html>

@@ -25,10 +25,14 @@ body {
     text-align-last: justify;
 }
 
-.red {
+.color-red {
     color: #f00;
 }
 
-.blue {
+.color-blue {
     color: hsl(210, 100%, 30%);
+}
+
+.is-loading {
+    color: #888;
 }
