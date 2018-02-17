@@ -7,10 +7,32 @@
     <title>VueJS</title>
 
     <link rel="stylesheet" href="/css/styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.1.3/dist/vue.js"></script>
 </head>
 <body>
     <div class="container">
         <h1 class="text-center">VueJs Tutorial</h1>
+
+        <div id="app">
+            <input type="text" id="input" v-model="message">
+
+            <p class="blue"><b>El valor del input es: <span class="red">{{ message }}</span></b></p>
+        </div>
     </div>    
+
+    <script>
+        // Javascript Way
+        // document.querySelector('#input').value = data.message;
+
+        // Vue Way
+        new Vue({
+            el: '#app',
+
+            data: {
+                message: "Hola Mundo"
+            }
+        });
+    </script>
 </body>
 </html>
