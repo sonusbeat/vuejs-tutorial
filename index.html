@@ -15,24 +15,42 @@
         <h1 class="text-center">VueJs Tutorial</h1>
 
         <div id="app">
-            <input type="text" id="input" v-model="message">
+            <h2>Lista de estudiantes</h2>
 
-            <p class="blue"><b>El valor del input es: <span class="red">{{ message }}</span></b></p>
-        </div>
+            <table>
+                <ul v-for="name in names">
+                    <!-- Metodo Alternativo -->
+                    <!-- <li v-text="name"></li> -->
+
+                    <li>{{ name }}</li>                   
+                </ul>
+            </table>
+
+            <hr><br>
+
+            <input id="input" type="text">
+            <button id="button">Agregar Estudiantes</button>
+        </div><!-- /#app -->
     </div>    
 
     <script>
-        // Javascript Way
-        // document.querySelector('#input').value = data.message;
-
-        // Vue Way
-        new Vue({
-            el: '#app',
+        let app = new Vue({
+            el: "#app",
 
             data: {
-                message: "Hola Mundo"
+                names: ["Daniel","Maria","Jose","Fernando"]
+            },
+
+            mounted() {
+                document.querySelector("#button").addEventListener('click', () => {
+                    let name = document.querySelector("#input");
+
+                    app.names.push(name.value);
+
+                    name.value = '';
+                });
             }
-        });
+        });        
     </script>
 </body>
 </html>
